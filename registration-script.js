@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
       if (usernameInput.classList.contains('is-invalid')){
         usernameInput.classList.replace('is-invalid', 'is-valid');
       }
-      usernameInput.classList.add('is-valid');
       nameAlert.innerHTML = '';
     } else {
       isValid = false;
@@ -29,6 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
       usernameInput.classList.add('is-invalid');
     }
 
+
+    // check the email domain
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(emailInput.value)) {
       isValid = false;
@@ -37,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
       emailAlert.innerHTML = '';
     }
 
+
+    // check the password 
+    // at least 8 characters and contain at least one symbol and one number
     const passwordPattern = /^(?=.*[a-zA-Z0-9])(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{8,}$/;
     if (!passwordPattern.test(passwordInput.value)) {
       isValid = false;
@@ -44,7 +48,8 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
       passAlert.innerHTML = '';
     }
-
+  
+    // match the password and confirm password
     if (confirmPasswordInput.value !== passwordInput.value) {
       isValid = false;
       confirmpassAlert.innerHTML = '*Passwords do not match.';
@@ -52,6 +57,8 @@ document.addEventListener("DOMContentLoaded", function() {
       confirmpassAlert.innerHTML = '';
     }
 
+
+    // store  in the local storage 
     if (isValid) {
       const userinfo = {
         username: usernameInput.value,

@@ -82,3 +82,11 @@ a {
     font-size: 10px;
     margin-bottom: 5px;
 }
+.is-valid {
+    border: 2px solid green;
+  }
+  
+  .is-invalid {
+    border: 2px solid red;
+  }
+  
